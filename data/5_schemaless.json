@@ -10,6 +10,7 @@ POST /blog/_search
     }
   }
 }
+
 #Find blog posts written in January 2016
 POST /blog/_search
 {
@@ -36,6 +37,7 @@ POST /blog/_search
     }
   }
 }
+
 #Perform a wildcard search for blog posts published at 11:50 AM using the non-analyzed date field
 POST /blog/_search
 {
@@ -48,28 +50,31 @@ POST /blog/_search
     }
   }
 }
+
 #Schemaless? Not really, ElasticSearch guesses and creates a schema for you
 GET /blog/_mapping
+
 #Example with integers instead of numbers in a string field
 POST /_bulk
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 1, "date": "2016-01-01"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 2, "date": "2016-01-02"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 10, "date": "2015-03-01"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 20, "date": "2016-05-12"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 100,"date": "2016-01-12"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 150, "date": "2016-03-01"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 170, "date": "2015-12-12"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 1500, "date": "2016-02-14"}
-{"index":{"_index":"test","_type":"test"}}
+{"index":{"_index":"test"}}
 {"guid": 1700, "date": "2015-11-11"}
+
 #Test the range again
 POST /test/_search
 {
@@ -82,6 +87,7 @@ POST /test/_search
     }
   }
 }
+
 #Find range again for dates
 POST /test/_search
 {
@@ -94,6 +100,9 @@ POST /test/_search
     }
   }
 }
+
 #See how ElasticSearch mapped it
 GET /test/_mapping
+
+# Delete test index
 DELETE /test
