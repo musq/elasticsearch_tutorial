@@ -1,4 +1,4 @@
-#Find blog posts that have an id between 100 & 150, with correct schema
+# Find blog posts that have an id between 100 & 150, with correct schema
 POST /blog/_search
 {
   "query": {
@@ -11,7 +11,7 @@ POST /blog/_search
   }
 }
 
-#Find blog posts that have an id between 6150 and 6200, with correct schema
+# Find blog posts that have an id between 6150 and 6200, with correct schema
 POST /blog/_search
 {
   "query": {
@@ -24,7 +24,7 @@ POST /blog/_search
   }
 }
 
-#Find blog posts written in January 2016, with correct schema
+# Find blog posts written in January 2016, with correct schema
 POST /blog/_search
 {
   "query": {

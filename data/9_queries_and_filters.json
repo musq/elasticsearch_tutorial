@@ -1,7 +1,7 @@
-#Get the mapping of the blog index
+# Get the mapping of the blog index
 GET /blog/_mapping
 
-#Perform a prefix query in "query context" on the non-analyzed values
+# Perform a prefix query in "query context" on the non-analyzed values
 POST /blog/_search
 {
   "query": {
@@ -11,7 +11,7 @@ POST /blog/_search
   }
 }
 
-#Perform a prefix query in "filter context" on the non-analyzed values
+# Perform a prefix query in "filter context" on the non-analyzed values
 POST /blog/_search
 {
   "query": {
@@ -25,7 +25,7 @@ POST /blog/_search
   }
 }
 
-#Execute a query on the title field which is analyzed
+# Execute a query on the title field which is analyzed
 POST /blog/_search
 {
   "query": {
@@ -35,7 +35,8 @@ POST /blog/_search
   }
 }
 
-#Combined multiple filters in a boolean query (must => and, must_not => not, should => or)
+# Combined multiple filters in a boolean query (must => and,
+# must_not => not, should => or)
 POST /blog/_search
 {
   "query": {
@@ -84,8 +85,9 @@ POST /blog/_search
   }
 }
 
-#Combined multiple queries in a boolean query (must => and, must_not => not, should => or)
-#Should behave differently in query mode, than in filter mode
+# Combined multiple queries in a boolean query (must => and,
+# must_not => not, should => or)
+# Should behave differently in query mode, than in filter mode
 POST /blog/_search
 {
   "query": {

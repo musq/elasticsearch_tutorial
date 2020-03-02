@@ -1,4 +1,4 @@
-#Look for "work" in standard analyzed field
+# Look for "work" in standard analyzed field
 POST /blog/_search
 {
   "query": {
@@ -8,7 +8,7 @@ POST /blog/_search
   }
 }
 
-#Look for "work" in English analyzed field
+# Look for "work" in English analyzed field
 POST /blog/_search
 {
   "query": {
@@ -18,7 +18,7 @@ POST /blog/_search
   }
 }
 
-#Look for "werk" in standard analyzed field
+# Look for "werk" in standard analyzed field
 POST /blog/_search
 {
   "query": {
@@ -28,7 +28,7 @@ POST /blog/_search
   }
 }
 
-#Look for "werk" in Dutch analyzed field
+# Look for "werk" in Dutch analyzed field
 POST /blog/_search
 {
   "query": {

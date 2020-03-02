@@ -1,48 +1,48 @@
-#Welcome to ElasticSearch
+# Welcome to ElasticSearch
 GET /
 
-#Get all documents, from all indices, from all types
+# Get all documents, from all indices, from all types
 GET /_search
 
-#Count all documents, from all indices, from all types
+# Count all documents, from all indices, from all types
 GET /_count
 
-#Add document to "company" index with id 1
+# Add document to "company" index with id 1
 POST /company/_doc/1
 {
   "name": "Feryn"
 }
 
-#Retrieve document 1 from "company" index
+# Retrieve document 1 from "company" index
 GET /company/_doc/1
 
-#Only get the source, not the meta data
+# Only get the source, not the meta data
 GET /company/_source/1
 
-#Add doc number 2
+# Add doc number 2
 POST /company/_doc/2
 {
   "firstname": "Jonas",
   "name": "Dhaenens"
 }
 
-#Add doc 3, don't choose the id yourself
+# Add doc 3, don't choose the id yourself
 POST /company/_doc/
 {
   "firstname": "Stijn",
   "name": "Claerhout"
 }
 
-#Overwrite doc 1
+# Overwrite doc 1
 POST /company/_doc/1
 {
   "firstname": "Thijs"
 }
 
-#Retrieve doc 1 again
+# Retrieve doc 1 again
 GET /company/_doc/1
 
-#Do a partial update on doc 1
+# Do a partial update on doc 1
 POST /company/_update/1
 {
   "doc": {
@@ -50,10 +50,10 @@ POST /company/_update/1
   }
 }
 
-#Looks better
+# Looks better
 GET /company/_doc/1
 
-#Insert + update = upsert
+# Insert + update = upsert
 POST /company/_update/3
 {
   "doc": {
@@ -63,5 +63,5 @@ POST /company/_update/3
   "doc_as_upsert": true
 }
 
-#Gotta search 'em all
+# Gotta search 'em all
 POST /company/_search

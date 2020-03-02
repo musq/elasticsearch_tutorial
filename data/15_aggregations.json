@@ -1,4 +1,5 @@
-#List the top 10 most popular bloggers: this will basically return a count of all the posts ("doc_count"), grouped by author
+# List the top 10 most popular bloggers: this will basically return a
+# count of all the posts ("doc_count"), grouped by author
 POST /blog/_search
 {
   "size": 0,
@@ -12,7 +13,7 @@ POST /blog/_search
   }
 }
 
-#List the top 10 most popular bloggers and the languages they write in
+# List the top 10 most popular bloggers and the languages they write in
 POST /blog/_search
 {
   "size": 0,
@@ -34,7 +35,7 @@ POST /blog/_search
   }
 }
 
-#Number of blog posts written in Dutch per month,in 2016
+# Number of blog posts written in Dutch per month,in 2016
 POST /blog/_search
 {
   "size":0,
@@ -73,10 +74,13 @@ POST /blog/_search
   }
 }
 
-#List the top 3 most popular cars.
-#The "make" field is mapped as a string. Strings are converted to the "text" type, which means they get analyzed.
-#The original value isn't stored in the field data, only the analyzed and tokenized version.
-#Luckily, strings also get a custom "keyword" field that is mapped as a "keyword" type. This can be used for aggregations.
+# List the top 3 most popular cars.
+# The "make" field is mapped as a string. Strings are converted to the
+# "text" type, which means they get analyzed.
+# The original value isn't stored in the field data, only the analyzed
+# and tokenized version.
+# Luckily, strings also get a custom "keyword" field that is mapped as a
+# "keyword" type. This can be used for aggregations.
 POST /cars/_search
 {
   "size": 0,
@@ -90,7 +94,7 @@ POST /cars/_search
   }
 }
 
-#Average price for a car
+# Average price for a car
 POST /cars/_search
 {
   "size": 0,
@@ -103,7 +107,7 @@ POST /cars/_search
   }
 }
 
-#Extended statistics about the price of a car
+# Extended statistics about the price of a car
 POST /cars/_search
 {
   "size": 0,
@@ -116,48 +120,47 @@ POST /cars/_search
   }
 }
 
-#Total revenue for cars per price range, with an interval of 20000
+# Total revenue for cars per price range, with an interval of 20000
 POST /cars/_search
 {
-   "size": 0,
-   "aggs":{
-      "price":{
-         "histogram":{
-            "field": "price",
-            "interval": 20000
-         },
-         "aggs":{
-            "revenue": {
-               "sum": {
-                 "field": "price"
-               }
-             }
-         }
+  "size": 0,
+  "aggs":{
+    "price":{
+      "histogram":{
+        "field": "price",
+        "interval": 20000
+      },
+      "aggs":{
+        "revenue": {
+          "sum": {
+            "field": "price"
+          }
+        }
       }
-   }
+    }
+  }
 }
 
-#Average price of a Ford vs. the total average price of all cars
+# Average price of a Ford vs. the total average price of all cars
 POST /cars/_search
 {
-    "size": 0,
-    "query": {
-        "match": {
-            "make": "ford"
-        }
-    },
-    "aggs": {
-        "single_avg_price": {
-            "avg": { "field": "price" }
-        },
-        "all": {
-            "global": {},
-            "aggs": {
-                "avg_price": {
-                    "avg": { "field": "price" }
-                }
-
-            }
-        }
+  "size": 0,
+  "query": {
+    "match": {
+      "make": "ford"
     }
+  },
+  "aggs": {
+    "single_avg_price": {
+      "avg": { "field": "price" }
+    },
+    "all": {
+      "global": {},
+      "aggs": {
+        "avg_price": {
+          "avg": { "field": "price" }
+        }
+      }
+    }
+  }
 }

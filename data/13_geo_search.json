@@ -1,4 +1,4 @@
-#Search all places within a 5km radius of Diksmuide
+# Search all places within a 5km radius of Diksmuide
 POST /cities/_search
 {
   "size": 200,
@@ -20,7 +20,6 @@ POST /cities/_search
           "location": {
             "lat": 51.033333,
             "lon": 2.866667
-
           }
         }
       }
@@ -28,7 +27,7 @@ POST /cities/_search
   }
 }
 
-#Draw a bounding box that contains Koksijde & Nieuwpoort
+# Draw a bounding box that contains Koksijde & Nieuwpoort
 POST /cities/_search
 {
   "size": 200,
@@ -36,15 +35,14 @@ POST /cities/_search
     "bool": {
       "filter": {
         "geo_bounding_box": {
-            "location": {
-              "bottom_left": {
-                "lat": 51.1,
-                "lon": 2.6
-              },
-              "top_right": {
-                "lat": 51.2,
-                "lon": 2.7
-              }
+          "location": {
+            "bottom_left": {
+              "lat": 51.1,
+              "lon": 2.6
+            },
+            "top_right": {
+              "lat": 51.2,
+              "lon": 2.7
             }
           }
         }
